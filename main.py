@@ -85,6 +85,10 @@ async def on_ready():
     # 起動完了
     logger.info('Ready')
 
+@client.event
+async def on_connect():
+    logger.info('Connected')
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
