@@ -58,9 +58,11 @@ from dotenv import load_dotenv
 load_dotenv()
 TOKEN_DISCORD=os.environ['TOKEN_DISCORD']
 if len(TOKEN_DISCORD) > 0:
-    logger.info('Load & set the token DISCORD {0}..{1}'.format(
-        hashlib.sha1(TOKEN_DISCORD.encode()).hexdigest()[0:7],
-        hashlib.sha1(TOKEN_DISCORD.encode()).hexdigest()[-7:],
+    logger.info('Load & set the token DISCORD {}'.format(
+        hashlib.sha1(
+            hashlib.sha1(TOKEN_DISCORD.encode()).hexdigest()[0:7],
+            hashlib.sha1(TOKEN_DISCORD.encode()).hexdigest()[-7:],
+        ).hexdigest()[0:7]
     ))
 else:
     raise ValueError('Require the token.discord')
