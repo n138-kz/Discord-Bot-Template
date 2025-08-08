@@ -116,6 +116,10 @@ async def on_typing(channel, user, when):
 async def on_message_delete(message):
     logger.info('on_message_delete')
 
+@client.event
+async def on_bulk_message_delete(message):
+    logger.info('on_bulk_message_delete')
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
