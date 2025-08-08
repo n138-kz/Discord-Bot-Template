@@ -89,6 +89,10 @@ async def on_ready():
 async def on_connect():
     logger.info('Connected')
 
+@client.event
+async def on_disconnect():
+    logger.warning('Disconnected')
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
