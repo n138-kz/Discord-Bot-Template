@@ -120,6 +120,39 @@ async def on_message_delete(message):
 async def on_bulk_message_delete(message):
     logger.info('on_bulk_message_delete')
 
+@client.event
+async def on_message_edit(before, after):
+    # 送信者が自分自身である場合は弾く
+    if after.author.id == client.user.id:
+        return
+    # 送信者がbotである場合は弾く
+    if after.author.bot:
+        logger.warning('Message author is BOT: {}({})'.format(
+            after.author.name,
+            after.author.id,
+        ))
+        return
+    # テキストチャンネルのみ処理
+    if after.channel.type != discord.ChannelType.text:
+        logger.warning('Channel type is not text channel')
+        return
+    # メッセージ受取り
+    logger.info('on_message_edit author: {}({}) guild:{} channel:{}'.format(
+        after.author.name,
+        after.author.id,
+        after.guild.id,
+        after.channel.id,
+    ))
+    logger.debug('on_message_edit author: {}({}) guild:{}({}) channel:{}({}) content:{}'.format(
+        after.author.name,
+        after.author.id,
+        after.guild.id,
+        after.guild.name,
+        after.channel.id,
+        after.channel.name,
+        after.content,
+    ))
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
