@@ -50,16 +50,16 @@
 
 1. [Actions secrets and variables/Repository variables](https://github.com/n138-kz/Discord-Bot-Template/settings/variables/actions) にて以下を設定
 
-| Name | Value |
-|:-:|:-|
-| `DOCKER_CREDENTIAL_USERNAME` | Docker Hubのユーザー名 |
+    | Name | Value |
+    |:-|:-|
+    | `DOCKER_CREDENTIAL_USERNAME` | Docker Hubのユーザー名 |
 
 1. [Actions secrets and variables/Repository secrets](https://github.com/n138-kz/Discord-Bot-Template/settings/secrets/actions) にて以下を設定
 
-| Name | Value |
-|:-:|:-|
-| `DOCKER_CREDENTIAL_PASSWORD` | Docker Hubのパスワード |
-| `DISCORD_WEBHOOK_URL` | Discord Webhook URL |
+    | Name | Value |
+    |:-|:-|
+    | `DOCKER_CREDENTIAL_PASSWORD` | Docker Hubのパスワード |
+    | `DISCORD_WEBHOOK_URL` | Discord Webhook URL |
 
 ## License
 
