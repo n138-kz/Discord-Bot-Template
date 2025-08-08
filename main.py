@@ -153,6 +153,35 @@ async def on_message_edit(before, after):
         after.content,
     ))
 
+@client.event
+async def on_message(message):
+    # 変数初期化
+    timeu=datetime.datetime.now(datetime.timezone.utc)
+    title=None
+    descr=None
+    color=0x000000
+    color_custom={
+        'success': 0x00FF00,
+        'failure': 0xFF0000,
+    }
+    url=None
+    text=None
+
+    # 送信者が自分自身である場合は弾く
+    if message.author.id == client.user.id:
+        return
+    # 送信者がbotである場合は弾く
+    if message.author.bot:
+        logger.warning('Message author is BOT: {}({})'.format(
+            message.author.name,
+            message.author.id,
+        ))
+        return
+    # テキストチャンネルのみ処理
+    if message.channel.type != discord.ChannelType.text:
+        logger.warning('Channel type is not text channel')
+        return
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
