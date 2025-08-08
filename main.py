@@ -100,6 +100,14 @@ async def on_error(event, args, kwargs):
     ))
     logger.error(sys.exc_info())
 
+@client.event
+async def on_typing(channel, user, when):
+    logger.info('on_typing: channel:{} user:{} when:{}'.format(
+        channel.id,
+        user.id,
+        when,
+    ))
+
 # botを起動
 def main():
     logger.info('Connecting to Discord API')
